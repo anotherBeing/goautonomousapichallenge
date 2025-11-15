@@ -16,7 +16,7 @@ public class IntentRequestSimpleQuoteToAddNewProductTests : TransformationTestsB
     {
         var payload = GetPayload();
 
-        payload = payload with { Intent = "request_simple_order" };
+        payload = payload with { Intent = "request_simple_quote" };
 
         var lastProduct = payload.Products.Last();
 
