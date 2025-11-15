@@ -1,12 +1,15 @@
 ﻿using System.Text.Json;
-using TransformApi.Model;
+using TransformApi.API.Model;
+using Payload = TransformApi.Model.Payload;
 
 namespace Tests;
 public class TransformationTestsBase
 {
     protected Payload GetPayload()
     {
-        return JsonSerializer.Deserialize<Payload>(GetJson());
+        var apiPayload = JsonSerializer.Deserialize<TransformApi.API.Model.Payload>(GetJson());
+
+        return apiPayload.ToDomain();
     }
 
     protected string GetJson()
