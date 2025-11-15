@@ -7,6 +7,8 @@ public class TransformationTestsBase
 {
     protected Payload GetPayload()
     {
+        //TODO: The tests have dependency on the mapper. Remove this dependency
+        // by creating the Payload object directly in the tests. 
         var apiPayload = JsonSerializer.Deserialize<TransformApi.API.Model.Payload>(GetJson());
 
         return apiPayload.ToDomain();
