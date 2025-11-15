@@ -12,7 +12,7 @@ namespace Tests;
 public class IntentRequestSimpleQuoteToAddNewProductTests : TransformationTestsBase
 {
     [Fact]
-    public void GivenIntentRequestSimple_ThenNewProductShouldBeAdded()
+    public void GivenIntentRequestSimpleQuote_ThenNewProductShouldBeAdded()
     {
         var payload = GetPayload();
 
@@ -33,5 +33,19 @@ public class IntentRequestSimpleQuoteToAddNewProductTests : TransformationTestsB
 
         Assert.True(payload.Products.All(item => result.Products.Contains(item)));
         Assert.Contains(expectedAddedProduct, result.Products);
+    }
+
+    [Fact]
+    public void GivenIntentNotRequestSimpleQuote_ThenShouldNotTransform()
+    {
+        var payload = GetPayload();
+
+        payload = payload with { Intent = "not_request_simple_quote" };
+
+        var transformer = new IntentRequestSimpleQuoteToAddNewProduct();
+
+        var result = transformer.Transform(payload);
+        
+        Assert.Equal(payload, result);
     }
 }
