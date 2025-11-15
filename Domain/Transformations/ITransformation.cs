@@ -1,6 +1,6 @@
-﻿using TransformApi.Model;
+﻿using TransformApi.Domain.Model;
 
-namespace TransformApi.Transformations;
+namespace TransformApi.Domain.Transformations;
 
 public interface ITransformation<T> where T : ITransformable<T>
 {

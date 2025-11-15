@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
-using TransformApi.Model;
-using TransformApi.Transformations;
+using TransformApi.Domain.Transformations;
+using TransformApi.Domain.Model;
 using Xunit;
 
 namespace Tests;

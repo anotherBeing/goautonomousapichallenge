@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using TransformApi.Model;
-using TransformApi.Transformations;
+﻿using System.Text.RegularExpressions;
+using TransformApi.Domain.Model;
+using TransformApi.Domain.Transformations;
 using Xunit;
 
 namespace Tests;

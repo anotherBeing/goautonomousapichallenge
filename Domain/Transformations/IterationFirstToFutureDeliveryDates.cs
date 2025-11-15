@@ -1,6 +1,6 @@
-﻿using TransformApi.Model;
+﻿using TransformApi.Domain.Model;
 
-namespace TransformApi.Transformations;
+namespace TransformApi.Domain.Transformations;
 public class IterationFirstToFutureDeliveryDates : ITransformation<Payload>
 {
     private const string TransformationTrigger = "first";

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using TransformApi.API.Model;
-using Payload = TransformApi.Model.Payload;
+using Payload = TransformApi.Domain.Model.Payload;
 
 namespace Tests;
 public class TransformationTestsBase

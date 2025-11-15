@@ -1,6 +1,6 @@
-using TransformApi.Transformations;
+using TransformApi.Domain.Transformations;
 
-namespace TransformApi.Model;
+namespace TransformApi.Domain.Model;
 
 public record Payload : ITransformable<Payload>
 {

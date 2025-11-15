@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
-using TransformApi.Model;
+using TransformApi.Domain.Model;
 
-namespace TransformApi.Transformations;
+namespace TransformApi.Domain.Transformations;
 public class IterationRefreshSwedenToSanitizeProductNumbers : ITransformation<Payload>
 {
     private const string SanitizePattern = "[^0-9]";
