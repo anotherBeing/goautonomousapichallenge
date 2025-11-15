@@ -14,14 +14,15 @@ public class IterationRefreshSwedenToSanitizeProductNumbers : ITransformation<Pa
         {
             return payload;
         }
-
-        var sanitizedProducts = payload.Products?.Select(p => p with
-        {
-            ProductNumber = p.ProductNumber with
+        //TODO: How to handle null values in a more generic and cleaner way?
+        var sanitizedProducts = payload.Products?.Where(p => p.ProductNumber?.Value is not null)
+            .Select(p => p with
             {
-                Value = Regex.Replace(p.ProductNumber.Value, SanitizePattern, "")
-            }
-        }).ToList();
+                ProductNumber = p.ProductNumber! with
+                {
+                    Value = Regex.Replace(p.ProductNumber.Value!, SanitizePattern, "")
+                }
+            }).ToList();
 
         return payload with { Products = sanitizedProducts };
     }
