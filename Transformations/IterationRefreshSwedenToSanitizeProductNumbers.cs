@@ -14,8 +14,7 @@ public class IterationRefreshSwedenToSanitizeProductNumbers : ITransformation<Pa
         {
             return payload;
         }
-        //TODO: How to handle null values in a more generic and cleaner way?
-        var sanitizedProducts = payload.Products?.Where(p => p.ProductNumber?.Value is not null)
+        var sanitizedProducts = payload.Products?
             .Select(p => p with
             {
                 ProductNumber = p.ProductNumber! with

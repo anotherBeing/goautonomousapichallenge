@@ -7,9 +7,6 @@ public class IterationFirstToFutureDeliveryDates : ITransformation<Payload>
 
     public Payload Transform(Payload payload)
     {
-        if (payload.Iteration is null)
-            return payload;
-
         var shouldTransform = payload.Iteration.Equals(TransformationTrigger, StringComparison.OrdinalIgnoreCase);
 
         if (!shouldTransform)
