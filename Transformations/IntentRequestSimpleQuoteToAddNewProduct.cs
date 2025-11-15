@@ -1,7 +1,7 @@
 ﻿using System.Data.SqlTypes;
-using TransformApi.Domain.Model;
+using TransformApi.Model;
 
-namespace TransformApi.Domain.Transformations;
+namespace TransformApi.Transformations;
 public class IntentRequestSimpleQuoteToAddNewProduct : ITransformation<Payload>
 {
     private const string TransformationTrigger = "request_simple_quote";

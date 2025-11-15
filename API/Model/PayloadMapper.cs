@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
+using TransformApi.Model;
 
 namespace TransformApi.API.Model;
 
 public static class PayloadMapper
 {
     //TODO: Figure out which properties can be null and adjust accordingly.
-    public static Domain.Model.Payload ToDomain(this Payload apiPayload)
+    public static TransformApi.Model.Payload ToDomain(this Payload apiPayload)
     {
         if (apiPayload is null) throw new ArgumentNullException(nameof(apiPayload));
-        return new Domain.Model.Payload
+        return new TransformApi.Model.Payload
         {
             MailId = apiPayload.MailId ?? throw new ArgumentNullException(nameof(apiPayload.MailId)),
             Iteration = apiPayload.Iteration ?? throw new ArgumentNullException(nameof(apiPayload.Iteration)),
@@ -20,16 +21,16 @@ public static class PayloadMapper
         };
     }
 
-    private static Domain.Model.Area ToDomain(Area? apiArea)
+    private static TransformApi.Model.Area ToDomain(Area? apiArea)
     {
         if (apiArea is null) throw new ArgumentNullException(nameof(apiArea));
-        return new Domain.Model.Area { Name = apiArea.Name ?? throw new ArgumentNullException(nameof(apiArea.Name)) };
+        return new TransformApi.Model.Area { Name = apiArea.Name ?? throw new ArgumentNullException(nameof(apiArea.Name)) };
     }
 
-    private static List<Domain.Model.Product> ToDomain(List<Product>? apiProducts)
+    private static List<TransformApi.Model.Product> ToDomain(List<Product>? apiProducts)
     {
         if (apiProducts is null) throw new ArgumentNullException(nameof(apiProducts));
-        var list = new List<Domain.Model.Product>();
+        var list = new List<TransformApi.Model.Product>();
         foreach (var p in apiProducts)
         {
             list.Add(ToDomain(p));
@@ -37,10 +38,10 @@ public static class PayloadMapper
         return list;
     }
 
-    private static Domain.Model.Product ToDomain(Product? apiProduct)
+    private static TransformApi.Model.Product ToDomain(Product? apiProduct)
     {
         if (apiProduct is null) throw new ArgumentNullException(nameof(apiProduct));
-        return new Domain.Model.Product
+        return new TransformApi.Model.Product
         {
             LineNumber = apiProduct.LineNumber ?? throw new ArgumentNullException(nameof(apiProduct.LineNumber)),
             ProductNumber = ToDomain(apiProduct.ProductNumber),
@@ -49,20 +50,20 @@ public static class PayloadMapper
         };
     }
 
-    private static Domain.Model.ProductField ToDomain(ProductField? apiField)
+    private static TransformApi.Model.ProductField ToDomain(ProductField? apiField)
     {
         if (apiField is null) throw new ArgumentNullException(nameof(apiField));
-        return new Domain.Model.ProductField
+        return new TransformApi.Model.ProductField
         {
             Id = apiField.Id ?? throw new ArgumentNullException(nameof(apiField.Id)),
             Value = apiField.Value ?? throw new ArgumentNullException(nameof(apiField.Value))
         };
     }
 
-    private static Domain.Model.Header ToDomain(Header? apiHeader)
+    private static TransformApi.Model.Header ToDomain(Header? apiHeader)
     {
         if (apiHeader is null) throw new ArgumentNullException(nameof(apiHeader));
-        return new Domain.Model.Header
+        return new TransformApi.Model.Header
         {
             OrderNumber = ToDomain(apiHeader.OrderNumber),
             AccountId = ToDomain(apiHeader.AccountId)

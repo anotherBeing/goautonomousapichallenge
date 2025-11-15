@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TransformApi.Domain.Transformations;
-using TransformApi.Domain.Model;
+using TransformApi.Model;
+using TransformApi.Transformations;
 using Xunit;
 
 namespace Tests;
