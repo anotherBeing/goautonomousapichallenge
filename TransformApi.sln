@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{295D2462-BEE9-44D4-86A3-D8B12A381C0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transform", "Transform.csproj", "{61DCC9AC-8074-423C-9094-BE746750942A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformApi", "TransformApi.csproj", "{61DCC9AC-8074-423C-9094-BE746750942A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
