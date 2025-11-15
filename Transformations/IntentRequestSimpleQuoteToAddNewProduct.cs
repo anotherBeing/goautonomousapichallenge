@@ -11,11 +11,20 @@ public class IntentRequestSimpleQuoteToAddNewProduct : ITransformation<Payload>
         if (payload.Intent is null)
             return payload;
 
-        var shouldTransform = payload.Intent.Equals(TransformationTrigger);
+        var shouldTransform = payload.Intent.Equals(TransformationTrigger, StringComparison.OrdinalIgnoreCase);
 
         if (shouldTransform)
         {
-            
+            var lastProduct = payload.Products.Last();
+
+            var newProduct = new Product()
+            {
+                LineNumber = lastProduct.LineNumber + 1,
+                ProductNumber = new ProductField() { Value = "FREIGHT" },
+                UnitPrice = new ProductField() { Value = "50" },
+            };
+
+            payload.Products.Add(newProduct);
         }
 
         return payload;
