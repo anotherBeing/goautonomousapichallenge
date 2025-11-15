@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Transform.API.Model;
+namespace TransformApi.API.Model;
 
 public class Payload
 {
